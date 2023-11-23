@@ -1,7 +1,6 @@
 package recursion
 
 import (
-	"fmt"
 	"math/rand"
 	"testing"
 	"time"
@@ -32,8 +31,6 @@ func TestSumNumbers(t *testing.T) {
 
 	t.Run("SumNumbers() should sum all numbers in slice", func(t *testing.T) {
 		numbers, total := createNumbers(10)
-
-		fmt.Printf("sum number: %v\n", numbers)
 
 		result := SumNumbers(numbers)
 

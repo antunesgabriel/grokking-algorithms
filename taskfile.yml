@@ -4,3 +4,7 @@ tasks:
     desc: "Run all unit tests"
     cmds:
       - go test ./...
+  bench:
+    desc: "Run all unit test with benchmark"
+    cmds:
+      - go test ./... -bench=.
