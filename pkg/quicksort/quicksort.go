@@ -6,12 +6,11 @@ func OrderNumbers(numbers []int) []int {
 		return numbers
 	}
 
-	if length == 2 && numbers[0] < numbers[1] {
-		return numbers
-	}
-
 	if length == 2 && numbers[0] > numbers[1] {
-		return []int{numbers[1], numbers[0]}
+		numbers[0], numbers[1] = numbers[1], numbers[0]
+		return numbers
+	} else if length == 2 {
+		return numbers
 	}
 
 	mid := length / 2
