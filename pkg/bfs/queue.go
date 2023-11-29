@@ -59,3 +59,13 @@ func (q *queue[T]) Values() []T {
 
 	return values
 }
+
+func (q *queue[T]) EnqueueMany(values []T) {
+	if len(values) < 1 {
+		return
+	}
+
+	for _, value := range values {
+		q.Enqueue(value)
+	}
+}
