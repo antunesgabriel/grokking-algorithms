@@ -82,4 +82,27 @@ func TestQueue(t *testing.T) {
 			t.Errorf("expected values to be %v, got %v", expected, values)
 		}
 	})
+
+	t.Run("EnqueueMany() should enqueue many items", func(t *testing.T) {
+		q := NewQueue[int]()
+
+		items := []int{1, 2, 3}
+		empty := []int{}
+
+		q.EnqueueMany(empty)
+
+		if q.Head != nil {
+			t.Errorf("expect %v - got %+v", nil, q.Head)
+		}
+
+		q.EnqueueMany(items)
+
+		if q.Head == nil || q.Head.Value != items[0] {
+			t.Errorf("expect value %d - got %v", items[0], q.Head)
+		}
+
+		if q.Tail == nil || q.Tail.Value != items[2] {
+			t.Errorf("expect value %d - got %v", items[2], q.Tail)
+		}
+	})
 }
